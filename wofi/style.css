@@ -1,0 +1,39 @@
+* {
+    font-family: Poppins;
+    font-weight: 500;
+    color: #fcb0d6;
+    background: transparent;
+}
+
+#window {
+    background: #1f1f1f;
+    margin: auto;
+    border-radius: 8px;
+    border: 1px solid #fcb0d6;
+}
+
+#outer-box {
+    padding: 12px;
+}
+
+#img {
+    margin: 6px;
+}
+
+#input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #fcb0d6;
+}
+
+#entry {
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 150ms linear;
+    outline: 0px;
+}
+
+#entry:selected {
+    background-color: #3b3b3b;
+}

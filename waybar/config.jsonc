@@ -1,0 +1,86 @@
+{
+    "layer": "top",
+    "modules-left": ["custom/wlogout", "hyprland/workspaces", "cpu", "memory"],
+    "modules-center": ["hyprland/window", "custom/media"],
+    "modules-right": ["pulseaudio", "clock", "tray"],
+
+    "custom/wlogout": {
+        "on-click": "wlogout",
+        "format": "",
+        "tooltip": false
+    },
+    
+    "custom/media": {
+        "exec": "playerctl --follow metadata --format '󰝚  {{ artist }} - {{ title }}'",
+        "on-click": "playerctl play-pause",
+        "escape": true,
+        "tooltip": false,
+        "max-length": 40
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "warp-on-scroll": false,
+        "format": "{name}",
+
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": []
+        },
+        
+    },
+
+    "hyprland/window": {
+        "max-length": 40
+    },
+
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+
+    "clock": {
+        "timezone": "Europe/Warsaw",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:  %H:%M   󰭦 %Y-%m-%d}"
+    },
+
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+
+    "memory": {
+        "format": "{}% 󰍛"
+    },
+
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon}   {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    }
+}
+

@@ -1,0 +1,131 @@
+* {
+	all: unset;
+	border: none;
+	font-family: "Poppins", "JetBrainsMono Nerd Font";
+	font-weight: 500;
+}
+
+/* Center */
+#window,
+#custom-media {
+	margin-top: 10px;
+	margin-left: 15px;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	border: 1px solid #fcb0d6;
+	border-radius: 8px;
+	min-width: 30rem;
+	background-color: #1f1f1f;
+	color: #fcb0d6;
+}
+
+/* Left */
+#window,
+#cpu,
+#memory,
+#workspaces {
+	margin-top: 10px;
+	margin-left: 15px;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	background-color: #1f1f1f;
+	color: #fcb0d6;
+}
+
+#cpu,
+#memory {
+	border-bottom: 1px solid #fcb0d6;
+	border-top: 1px solid #fcb0d6;
+	color: #fcb0d6;
+}
+
+#cpu {
+	padding-right: 12px;
+	border-left: 1px solid #fcb0d6;
+	border-radius: 8px 0px 0px 8px;
+}
+
+#memory {
+	padding-left: 0;
+	margin-left: 0;
+	border-right: 1px solid #fcb0d6;
+	border-radius: 0px 8px 8px 0px;
+}
+
+#custom-wlogout {
+	border: 1px solid #fcb0d6;
+	border-radius: 8px;
+	margin-top: 10px;
+	margin-left: 15px;
+	padding-left: 1.5rem;
+	padding-right: 2rem;
+	background-color: #1f1f1f;
+	font-size: 1.3rem;
+	color: #fcb0d6;
+}
+
+#workspaces {
+	border-radius: 8px;
+	border: 1px solid #fcb0d6;
+}
+
+#workspaces button {
+	color: #fcb0d6;
+	background: transparent;
+	font-size: 16px;
+	padding: 0.5rem;
+}
+
+#workspaces .active {
+	border-top: 1px solid #ff80c0;
+	animation: flash 500ms forwards;
+	font-weight: 600;
+}
+
+#workspaces button:hover {
+	color: #ff80c0;
+}
+
+@keyframes flash {
+	from {
+		color: #ffffff;
+		border-color: #ffffff;
+	}
+
+	to {
+		color: #ff80c0;
+		border-color: #ff80c0;
+	}
+}
+
+/* Right */
+#pulseaudio,
+#clock,
+#tray {
+	margin-top: 10px;
+	padding: 0px 12px 0px 12px;
+	border-bottom: 1px solid #fcb0d6;
+	border-top: 1px solid #fcb0d6;
+	background-color: #1f1f1f;
+	color: #fcb0d6;
+}
+
+#pulseaudio {
+	padding-left: 12px;
+	border-left: 1px solid #fcb0d6;
+	border-radius: 8px 0px 0px 8px;
+}
+
+#tray {
+	padding-right: 12px;
+	margin-right: 15px;
+	border-right: 1px solid #fcb0d6;
+	border-radius: 0px 8px 8px 0px;
+}
+
+tooltip {
+	background-color: #1f1f1f;
+	border: 1px solid #fcb0d6;
+	border-radius: 8px;
+}
+
