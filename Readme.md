@@ -7,3 +7,7 @@ My Hyprland dotfiles
 ![Gtk apps](screenshots/gtk.png)
 
 ![Desktop screenshot with no app open](screenshots/desktop.png)
+
+![wlogout](screenshots/wlogout.png)
+
+![swaylock](screenshots/swaylock.png)
