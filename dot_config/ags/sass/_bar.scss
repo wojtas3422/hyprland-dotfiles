@@ -1,0 +1,65 @@
+@use 'sass:color';
+@import 'colors';
+
+.bar-window {
+    color: $foreground;
+    border-bottom: 1px solid $color1;
+    background-color: change-color($color: #000000, $alpha: 0.3);
+}
+
+.bar-workspaces-focused {
+    color: $color1;
+    border-top: $color1 1px solid;
+    animation: flash 500ms forwards;
+}
+
+.bar-workspaces-not-focused {
+    color: $foreground;
+}
+
+@keyframes flash {
+    from {
+        color: white;
+        border-top-color: white;
+        background-color: #45475a;
+    }
+    to {
+        background-color: transparent;
+        border-top-color: $color1;
+        color: $color1;
+    }
+}
+
+.bar-workspaces-button {
+    transition: color 250ms;
+    background-color: transparent;
+    padding: 6px 8px;
+    min-width: 2px;
+    border-bottom: 1px solid $color1;
+    transition: all 250ms;
+}
+
+.bar-workspaces-button:hover {
+    background-color: $background;
+}
+
+.bar-mpris {
+    color: $foreground;
+    padding: 0px 10px;
+    background-size: 20px;
+}
+
+.bar-tray-icon {
+    padding: 0px 7px;
+}
+
+.bar-audio {
+    padding: 0px 8px;
+}
+
+decoration {
+    background-color: $background;
+    border-radius: 8px;
+    padding: 5px;
+    color: $foreground;
+}

@@ -1,0 +1,7 @@
+// Workspace settings
+{
+    "files.exclude": {
+        "types": true,
+        "tsconfig.json": true
+    }
+}

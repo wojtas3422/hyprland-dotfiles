@@ -1,0 +1,58 @@
+export PATH=$PATH:/home/wojtas/.spicetify
+export PATH=$PATH:/home/wojtas/bin
+ZSH_CUSTOM=/home/wojtas/.zsh_custom
+# Path to your oh-my-zsh installation.
+ZSH=/usr/share/oh-my-zsh/
+
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME='bangjer'
+
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+
+#Uncomment the following line to enable command auto-correction.
+ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+# COMPLETION_WAITING_DOTS="true"
+HIST_STAMPS="dd/mm/yyyy"
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt EXTENDED_HISTORY
+
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+plugins=(git sudo safe-paste bgnotify zsh-autosuggestions zsh-syntax-highlighting command-not-found)
+
+# For a full list of active aliases, run `alias`.
+alias pacman="sudo pacman"
+alias svim="sudo nvim"
+alias ufw="sudo ufw"
+alias c="/usr/bin/codium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland --unity-launch"
+alias ls="ls --color=auto"
+alias vim="nvim"
+alias wdim="gammastep -l 0:0 -o -b 0.65:0.65 & disown"
+alias undim="killall gammastep"
+alias ani="ani-cli $1 --skip"
+alias docker="sudo docker"
+
+ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+  mkdir $ZSH_CACHE_DIR
+fi
+
+source $ZSH/oh-my-zsh.sh
+export EDITOR='/usr/bin/codium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland'
