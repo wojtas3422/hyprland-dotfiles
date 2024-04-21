@@ -1,65 +1,118 @@
 @use 'sass:color';
 @import 'colors';
 
+$margin: 6px 6px;
+$padding: 6px 20px;
+
+@mixin bullet {
+    margin: $margin;
+    background-color: $background0;
+    border-radius: 9999px;
+    padding: $padding;
+}
+
 .bar-window {
+    font-weight: 500;
     color: $foreground;
-    border-bottom: 1px solid $color1;
-    background-color: change-color($color: #000000, $alpha: 0.3);
+    background-color: $background;
+    border-bottom: 2px solid $background0;
+}
+
+.bar-workspaces-container {
+    @include bullet();
+    padding: 6px 10px;
+    margin: 6px 6px 6px 12px;
+}
+
+.bar-workspaces-button {
+    border-radius: 9999px;
+    min-width: 1.6rem;
+    margin: 0px 4px 0px 0px;
+}
+
+.bar-workspaces-button:hover {
+    background-color: darken($color: $color1, $amount: 5);
 }
 
 .bar-workspaces-focused {
-    color: $color1;
-    border-top: $color1 1px solid;
+    background-color: $color1;
+    color: white;
     animation: flash 500ms forwards;
 }
 
 .bar-workspaces-not-focused {
-    color: $foreground;
+    background-color: $background1;
+    transition: all 250ms;
 }
 
 @keyframes flash {
     from {
         color: white;
         border-top-color: white;
-        background-color: #45475a;
+        background-color: white;
     }
     to {
-        background-color: transparent;
-        border-top-color: $color1;
-        color: $color1;
+        background-color: $color1;
     }
 }
 
-.bar-workspaces-button {
-    transition: color 250ms;
-    background-color: transparent;
-    padding: 6px 8px;
-    min-width: 2px;
-    border-bottom: 1px solid $color1;
-    transition: all 250ms;
+.bar-focused {
+    @include bullet();
+    
 }
 
-.bar-workspaces-button:hover {
-    background-color: $background;
-}
+$border-size: 2px;
 
 .bar-mpris {
-    color: $foreground;
-    padding: 0px 10px;
-    background-size: 20px;
+    @include bullet();
+
+    padding: calc(6px - $border-size) 20px;
+    background-color: rgba($color: #000000, $alpha: 0.6);
+    background-blend-mode: darken;
+    background-position: 50%;
+    transition: 250ms all;
+}
+
+.bar-mpris-playing {
+    border: $border-size solid $color1;
+}
+
+.bar-mpris-paused {
+    border: $border-size solid $background1;
 }
 
 .bar-tray-icon {
-    padding: 0px 7px;
+    background-color: $background1;
+    padding: 4px;
+    margin: 0px 4px;
+    border-radius: 9999px;
+    transition: all 250ms;
+}
+
+.bar-tray-icon:hover {
+    background-color: $color1
+}
+
+.bar-tray-container {
+    @include bullet();
+    padding: 6px 10px;
 }
 
 .bar-audio {
-    padding: 0px 8px;
+    margin: 0px 12px 0px 0px;
+}
+
+.bar-audio:hover {
+    background-color: $background1
+}
+
+.bar-right-container {
+    @include bullet();
 }
 
 decoration {
-    background-color: $background;
+    background-color: $background0;
+    color: $foreground;
     border-radius: 8px;
     padding: 5px;
-    color: $foreground;
 }

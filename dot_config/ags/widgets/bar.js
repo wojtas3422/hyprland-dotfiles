@@ -3,24 +3,28 @@ const hyprland = await Service.import('hyprland')
 const systemtray = await Service.import('systemtray')
 const audio = await Service.import('audio')
 
-// Workspace numbers
-const focusedTitle = Widget.Label({
+
+const focusedTitle = hyprland.active.client.bind('title')
+
+const focusedLabel = Widget.Label({
+    class_name: focusedTitle.as(focusedTitle => focusedTitle.length ? 'bar-focused' : ''),
     maxWidthChars: 70,
     truncate: 'end',
-    label: hyprland.active.client.bind('title'),
-    visible: hyprland.active.client.bind('address')
-        .as(addr => !!addr),
+    label: focusedTitle,
+    visible: hyprland.active.client.bind('address').as(addr => !!addr),
 })
 
-const activeId = hyprland.active.workspace.bind("id")
+// Workspace numbers
+const activeWsId = hyprland.active.workspace.bind("id")
 
 const Workspaces = Widget.EventBox({
     name: 'bar-workspaces-container',
     child: Widget.Box({
+        class_name: 'bar-workspaces-container',
         children: Array.from({ length: 10 }, (_, i) => i + 1).map(i => Widget.Button({
             attribute: i,
             label: `${i}`,
-            class_name: activeId.as(activeId => `${i === activeId ? "bar-workspaces-button bar-workspaces-focused" : "bar-workspaces-button bar-workspaces-not-focused"}`),
+            class_name: activeWsId.as(activeId => `${i === activeId ? "bar-workspaces-button bar-workspaces-focused" : "bar-workspaces-button bar-workspaces-not-focused"}`),
             onClicked: () => hyprland.messageAsync(`dispatch workspace ${i}`),
         })),
 
@@ -32,17 +36,18 @@ const Workspaces = Widget.EventBox({
 })
 
 // Mpris
-const Player = player => Widget.Button({
-    onClicked: () => player.playPause(),
-    child: Widget.Label({
-        class_name: 'bar-mpris',
-        maxWidthChars: 24,
-        truncate: 'end',
-    }).hook(player, label => {
-        const { track_title } = player;
-        label.label = label.label = `󰝚  ${track_title}`;
-    }),
-})
+function Player(player) {
+    return Widget.Button({
+        onClicked: () => player.playPause(),
+        child: Widget.Label({
+            class_name: player.bind('play-back-status').as(p => p == 'Playing' ? 'bar-mpris bar-mpris-playing' : 'bar-mpris bar-mpris-paused'),
+            css: player.bind("cover_path").transform(p => `background-image: url('${p}');`),
+        }).hook(player, label => {
+            const { track_title, play_back_status } = player;
+            label.label = `${play_back_status == 'Playing' ? ' ' : ' '}  ${track_title}`;
+        }),
+    })
+}
 
 const players = Widget.Box({
     children: mpris.bind('players').as(p => p.map(Player))
@@ -58,6 +63,7 @@ const SysTrayItem = item => Widget.Button({
 });
 
 const sysTray = Widget.Box({
+    class_name: 'bar-tray-container',
     children: systemtray.bind('items').as(i => i.map(SysTrayItem))
 })
 
@@ -87,17 +93,26 @@ const volumeIndicator = Widget.EventBox({
 const date = Variable('', {
     poll: [1000, () => {
         const date = new Date()
-        const hour = date.getHours().toString().padStart(2 , '0')
+        const hour = date.getHours().toString().padStart(2, '0')
         const minute = date.getMinutes().toString().padStart(2, '0')
-        
+
         const day = date.getDate().toString().padStart(2, '0')
-        const month = (date.getMonth()+1).toString().padStart(2, '0')
+        const month = (date.getMonth() + 1).toString().padStart(2, '0')
         const year = date.getFullYear()
 
-        return `  ${hour}:${minute}   󰭦 ${day}-${month}-${year}`  
+        return `  ${hour}:${minute}   󰭦 ${day}-${month}-${year}`
     }]
 })
+
 const dateLabel = Widget.Label({ label: date.bind() })
+
+const rightContainer = Widget.Box({
+    class_name: 'bar-right-container',
+    children: [
+        volumeIndicator,
+        dateLabel
+    ]
+})
 
 const barContainer = Widget.CenterBox({
     class_name: 'bar-container',
@@ -109,15 +124,14 @@ const barContainer = Widget.CenterBox({
     }),
     centerWidget: Widget.Box({
         children: [
-            focusedTitle,
+            focusedLabel,
         ]
     }),
     endWidget: Widget.Box({
         hpack: 'end',
         spacing: 4,
         children: [
-            volumeIndicator,
-            dateLabel,
+            rightContainer,
             sysTray
         ]
     }),
