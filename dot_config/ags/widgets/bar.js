@@ -40,6 +40,8 @@ function Player(player) {
     return Widget.Button({
         onClicked: () => player.playPause(),
         child: Widget.Label({
+            maxWidthChars: 23,
+            truncate: 'end',
             class_name: player.bind('play-back-status').as(p => p == 'Playing' ? 'bar-mpris bar-mpris-playing' : 'bar-mpris bar-mpris-paused'),
             css: player.bind("cover_path").transform(p => `background-image: url('${p}');`),
         }).hook(player, label => {

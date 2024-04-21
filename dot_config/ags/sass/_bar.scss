@@ -95,7 +95,8 @@ $border-size: 2px;
 
 .bar-tray-container {
     @include bullet();
-    padding: 6px 10px;
+    padding: 6px;
+    margin: 6px 12px 6px 6px;
 }
 
 .bar-audio {
