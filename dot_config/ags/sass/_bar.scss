@@ -58,7 +58,7 @@ $padding: 6px 20px;
 
 .bar-focused {
     @include bullet();
-    
+
 }
 
 $border-size: 2px;
@@ -67,7 +67,7 @@ $border-size: 2px;
     @include bullet();
 
     padding: calc(6px - $border-size) 20px;
-    background-color: rgba($color: #000000, $alpha: 0.6);
+    background-color: rgba($color: #000000, $alpha: 0.5);
     background-blend-mode: darken;
     background-position: 50%;
     transition: 250ms all;
@@ -110,9 +110,26 @@ $border-size: 2px;
     @include bullet();
 }
 
-decoration {
+menu {
     background-color: $background0;
     color: $foreground;
-    border-radius: 8px;
-    padding: 5px;
+    border-radius: 12px;
+    padding: 10px;
+    border: 2px solid $background1;
+}
+
+menuitem {
+    padding: 4px 12px;
+    transition: 250ms all;
+    border-radius: 9999px;
+}
+
+menuitem:hover  {
+    background-color: $background1;
+}
+
+separator {
+    background-color: $color1;
+    min-height: 1px;
+    margin: 5px 0px;
 }

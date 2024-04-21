@@ -62,9 +62,11 @@ const SysTrayItem = item => Widget.Button({
     onSecondaryClick: (_, event) => item.openMenu(event),
 });
 
+const sysTrayItems = systemtray.bind('items').as(i => i.map(SysTrayItem))
+
 const sysTray = Widget.Box({
     class_name: 'bar-tray-container',
-    children: systemtray.bind('items').as(i => i.map(SysTrayItem))
+    children: sysTrayItems
 })
 
 
