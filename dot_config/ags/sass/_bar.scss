@@ -20,14 +20,14 @@ $padding: 6px 20px;
 
 .bar-workspaces-container {
     @include bullet();
-    padding: 6px 10px;
     margin: 6px 6px 6px 12px;
+    padding: 6px;
 }
 
 .bar-workspaces-button {
     border-radius: 9999px;
     min-width: 1.6rem;
-    margin: 0px 4px 0px 0px;
+    margin: 0px 3px;
 }
 
 .bar-workspaces-button:hover {
