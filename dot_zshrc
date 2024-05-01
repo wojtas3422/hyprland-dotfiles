@@ -56,3 +56,12 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 export EDITOR='/usr/bin/codium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland'
+
+# set volume for mpvpaper
+wpvol() {
+    echo "{ \"command\": [\"set_property\", \"volume\", $1] }" | socat - /tmp/mpvsocket
+}
+
+wppause() {
+  echo "{ \"command\": [\"cycle\", \"pause\"] }" | socat - /tmp/mpvsocket
+}
