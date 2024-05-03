@@ -2,7 +2,7 @@
 @import 'colors';
 
 $margin: 6px 6px;
-$padding: 6px 20px;
+$padding: 0px 20px;
 
 @mixin bullet {
     margin: $margin;
@@ -58,7 +58,6 @@ $padding: 6px 20px;
 
 .bar-focused {
     @include bullet();
-    padding: 0px 20px;
 }
 
 $border-size: 2px;
