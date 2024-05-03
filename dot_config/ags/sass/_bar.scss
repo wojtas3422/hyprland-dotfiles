@@ -58,7 +58,7 @@ $padding: 6px 20px;
 
 .bar-focused {
     @include bullet();
-
+    padding: 0px 20px;
 }
 
 $border-size: 2px;
