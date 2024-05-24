@@ -32,7 +32,7 @@ local user_opts = {
     iamaprogrammer = false,     -- use native mpv values and disable OSC
                                 -- internal track list management (and some
                                 -- functions that depend on it)
-    font = 'mpv-osd-symbols',	-- default osc font
+    font = 'Poppins',	-- default osc font
     seekbarhandlesize = 1.0,	-- size ratio of the slider handle, range 0 ~ 1
     seekrange = true,		-- show seekrange overlay
     seekrangealpha = 64,      	-- transparency of seekranges
@@ -142,7 +142,7 @@ local osc_param = { -- calculated by osc_init()
 local osc_styles = {
     TransBg = '{\\blur100\\bord150\\1c&H000000&\\3c&H000000&}',
     SeekbarBg = '{\\blur0\\bord0\\1c&HFFFFFF&}',
-    SeekbarFg = '{\\blur1\\bord1\\1c&HD6B0FC&}',
+    SeekbarFg = '{\\blur1\\bord1\\1c&HFAB489&}',
     Ctrl1 = '{\\blur0\\bord0\\1c&HFFFFFF&\\3c&HFFFFFF&\\fs36\\fnmaterial-design-iconic-font}',
     Ctrl2 = '{\\blur0\\bord0\\1c&HFFFFFF&\\3c&HFFFFFF&\\fs24\\fnmaterial-design-iconic-font}',
     Ctrl2Flip = '{\\blur0\\bord0\\1c&HFFFFFF&\\3c&HFFFFFF&\\fs24\\fnmaterial-design-iconic-font\\fry180',
