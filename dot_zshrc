@@ -1,5 +1,10 @@
 export PATH=$PATH:/home/wojtas/.spicetify
 export PATH=$PATH:/home/wojtas/bin
+
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
 ZSH_CUSTOM=/home/wojtas/.zsh_custom
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
@@ -55,7 +60,7 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
 fi
 
 source $ZSH/oh-my-zsh.sh
-export EDITOR='/usr/bin/codium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland'
+export EDITOR="/usr/bin/codium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland"
 
 # set volume for mpvpaper
 wpvol() {

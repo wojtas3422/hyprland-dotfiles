@@ -10,6 +10,7 @@
     margin: auto;
     border-radius: 8px;
     border: 1px solid #b4befe;
+    min-width: 800px;
 }
 
 #outer-box {

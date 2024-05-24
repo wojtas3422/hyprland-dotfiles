@@ -1,7 +1,7 @@
 show = drun
 term = alacritty
 parse_action = true
-width = 50%
+width = 70%
 lines = 12
 layer = overlay
 line_wrap = word
