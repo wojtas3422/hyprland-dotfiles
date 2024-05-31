@@ -51,6 +51,7 @@ $padding: 0px 20px;
         border-top-color: white;
         background-color: white;
     }
+
     to {
         background-color: $color1;
     }
@@ -124,7 +125,7 @@ menuitem {
     border-radius: 9999px;
 }
 
-menuitem:hover  {
+menuitem:hover {
     background-color: $background1;
 }
 
