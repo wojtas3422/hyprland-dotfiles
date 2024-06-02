@@ -46,7 +46,7 @@ plugins=(git sudo safe-paste bgnotify zsh-autosuggestions zsh-syntax-highlightin
 alias pacman="sudo pacman"
 alias svim="sudo nvim"
 alias ufw="sudo ufw"
-alias c="/usr/bin/codium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland --unity-launch"
+alias c="/usr/bin/codium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland"
 alias ls="ls --color=auto"
 alias vim="nvim"
 alias wdim="gammastep -l 0:0 -o -b 0.65:0.65 & disown"
